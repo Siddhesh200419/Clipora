@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share text between your devices with a simple six-digit code.">
+    <title>Clipora — Your clipboard, everywhere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="./" aria-label="Clipora home">
+                <span class="brand-icon" aria-hidden="true">C</span>
+                <span class="brand-name">clipora<span class="brand-dot">.</span></span>
+            </a>
+            <span class="header-note">A little less sending things to yourself.</span>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="intro" aria-labelledby="page-title">
+            <span class="intro-label">SMALL TOOL. SMOOTHER WORKFLOW.</span>
+            <h1 class="intro-title" id="page-title">Copy here.<br>Pick up <span class="title-accent">anywhere.</span></h1>
+            <p class="intro-description">Move text between your devices with a simple code.<br class="desktop-break"> No sign-ups, no emails, no extra tabs to keep track of.</p>
+            <ul class="feature-list" aria-label="Features">
+                <li class="feature-item">No account needed</li>
+                <li class="feature-item">6-digit sharing code</li>
+                <li class="feature-item">Expires in 15 minutes</li>
+            </ul>
+        </section>
+
+        <div class="clipboard-grid">
+            <section class="clipboard-card share-card" aria-labelledby="share-title">
+                <div class="card-heading">
+                    <div class="card-icon" aria-hidden="true">↗</div>
+                    <span class="card-tag">FROM THIS DEVICE</span>
+                </div>
+                <h2 class="card-title" id="share-title">Send a little something.</h2>
+                <p class="card-description">A link, a note, that snippet you need elsewhere.</p>
+                <form class="clipboard-form" id="share-form">
+                    <label class="form-label" for="content">Your text</label>
+                    <textarea class="text-input share-input" id="content" required placeholder="Paste something worth passing along…" aria-describedby="character-count"></textarea>
+                    <div class="input-footer">
+                        <span class="field-hint">Text only. Keep it simple.</span>
+                        <span class="field-hint character-count" id="character-count">0 characters</span>
+                    </div>
+                    <button class="button button-primary" id="share-button" type="submit">Create sharing code</button>
+                </form>
+                <div class="status" id="share-status" role="status" aria-live="polite"></div>
+                <div class="result-panel" id="share-result" hidden>
+                    <span class="result-label">Your sharing code</span>
+                    <strong class="sharing-code" id="share-code"></strong>
+                    <div class="field-hint" id="share-expiry"></div>
+                    <button class="button button-secondary" id="copy-code" type="button">Copy code</button>
+                </div>
+            </section>
+
+            <section class="clipboard-card receive-card" aria-labelledby="receive-title">
+                <div class="card-heading">
+                    <div class="card-icon receive-icon" aria-hidden="true">↙</div>
+                    <span class="card-tag">TO THIS DEVICE</span>
+                </div>
+                <h2 class="card-title" id="receive-title">Right where you need it.</h2>
+                <p class="card-description">Got a code? Your text is just six digits away.</p>
+                <form class="clipboard-form" id="receive-form">
+                    <label class="form-label" for="code">Sharing code</label>
+                    <input class="text-input code-input" id="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="123456" required autocomplete="off" aria-describedby="code-hint">
+                    <p class="field-hint code-hint" id="code-hint">Enter the code shown on your other device.</p>
+                    <button class="button button-dark" id="receive-button" type="submit">Retrieve text</button>
+                </form>
+                <div class="status" id="receive-status" role="status" aria-live="polite"></div>
+                <div class="result-panel" id="receive-result" hidden>
+                    <label class="form-label" for="received-text">Your shared text</label>
+                    <textarea class="text-input received-input" id="received-text" readonly></textarea>
+                    <div class="field-hint" id="receive-expiry"></div>
+                    <button class="button button-secondary" id="copy-text" type="button">Copy text</button>
+                </div>
+                <div class="receive-note">
+                    <span class="note-title">Made for the in-between.</span>
+                    <p class="note-text">From phone to laptop. From work to home.<br>Your words, without the detour.</p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="privacy-note">
+            <span class="privacy-label">A quick heads-up</span>
+            <p class="privacy-text">Anyone with the code can read your text. Keep passwords and sensitive information out of your clipboard.</p>
+        </aside>
+    </main>
+
+    <footer class="container site-footer">
+        <span class="footer-brand">clipora.</span>
+        <span class="footer-text">Less friction. More flow.</span>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
